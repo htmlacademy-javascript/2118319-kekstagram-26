@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Денис Хохонов](https://up.htmlacademy.ru/javascript/26/user/2118319).
-* Наставник: [Никита Любицкий](https://htmlacademy.ru/profile/nlold).
+* Наставник:  [Никита Любицкий](https://htmlacademy.ru/profile/nlold).
 
 ---
 
