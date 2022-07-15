@@ -17,14 +17,20 @@ const fotoMessage = [
 const userNames = ['Николай','Денис','Ольга','Карен','Сергей','Юрий'];
 
 function genComments() {
+  let minValue = 1;
+  let maxValue = 5;
   const comments = [];
-  const j = getRandomPositiveInteger(1, 5);
+  const j = getRandomPositiveInteger(minValue, maxValue);
   for(let i = 1; i < j; i++){
     const obj = {};
-    obj.id = i*100;
-    obj.avatar = `img/avatar-${  getRandomPositiveInteger(1, 6)  }.svg`;
-    obj.message = fotoMessage[getRandomPositiveInteger(0, 5)];
-    obj.name = userNames[getRandomPositiveInteger(0, 5)];
+    obj.id = i;
+    minValue = 1;
+    maxValue = 6;
+    obj.avatar = `img/avatar-${  getRandomPositiveInteger(minValue, maxValue)  }.svg`;
+    minValue = 0;
+    maxValue = 5;
+    obj.message = fotoMessage[getRandomPositiveInteger(minValue, maxValue)];
+    obj.name = userNames[getRandomPositiveInteger(minValue, maxValue)];
     comments.push(obj);
   }
   return comments;
@@ -32,12 +38,14 @@ function genComments() {
 
 function genFotoInfo() {
   const arr = [];
+  const minValue = 15;
+  const maxValue = 200;
   for(let i = 1; i < 26; i++){
     const obj = {};
     obj.id = i;
     obj.url = `photos/${  i  }.jpg`;
     obj.description = `Тестовое фото №${  i}`;
-    obj.likes = getRandomPositiveInteger(15, 200);
+    obj.likes = getRandomPositiveInteger(minValue, maxValue);
     obj.comments = genComments();
 
     arr.push(obj);
