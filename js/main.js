@@ -16,21 +16,26 @@ const fotoMessage = [
 
 const userNames = ['Николай','Денис','Ольга','Карен','Сергей','Юрий'];
 
+const minValueCountComments = 1;
+const maxValueCountComments = 5;
+const minValueAvatar = 1;
+const maxValueAvatar = 6;
+const minValueForMessage = 0;
+const maxValueForMessage = 5;
+const minValueForName = 0;
+const maxValueForName = 5;
+const minValueLikes = 15;
+const maxValueLikes = 200;
+
 function genComments() {
-  let minValue = 1;
-  let maxValue = 5;
   const comments = [];
-  const j = getRandomPositiveInteger(minValue, maxValue);
+  const j = getRandomPositiveInteger(minValueCountComments, maxValueCountComments);
   for(let i = 1; i < j; i++){
     const obj = {};
     obj.id = i;
-    minValue = 1;
-    maxValue = 6;
-    obj.avatar = `img/avatar-${  getRandomPositiveInteger(minValue, maxValue)  }.svg`;
-    minValue = 0;
-    maxValue = 5;
-    obj.message = fotoMessage[getRandomPositiveInteger(minValue, maxValue)];
-    obj.name = userNames[getRandomPositiveInteger(minValue, maxValue)];
+    obj.avatar = `img/avatar-${  getRandomPositiveInteger(minValueAvatar, maxValueAvatar)  }.svg`;
+    obj.message = fotoMessage[getRandomPositiveInteger(minValueForMessage, maxValueForMessage)];
+    obj.name = userNames[getRandomPositiveInteger(minValueForName, maxValueForName)];
     comments.push(obj);
   }
   return comments;
@@ -38,14 +43,12 @@ function genComments() {
 
 function genFotoInfo() {
   const arr = [];
-  const minValue = 15;
-  const maxValue = 200;
   for(let i = 1; i < 26; i++){
     const obj = {};
     obj.id = i;
     obj.url = `photos/${  i  }.jpg`;
     obj.description = `Тестовое фото №${  i}`;
-    obj.likes = getRandomPositiveInteger(minValue, maxValue);
+    obj.likes = getRandomPositiveInteger(minValueLikes, maxValueLikes);
     obj.comments = genComments();
 
     arr.push(obj);
